@@ -2,7 +2,7 @@
 $execute in $(Dimension) store success score #ForceloadLib.IsLoaded ForceloadLib if loaded $(X) 0 $(Z)
 execute if score #ForceloadLib.IsLoaded ForceloadLib matches 0 run data modify storage forceloadlib:zprivate LoadingChunks append from storage forceloadlib:temporary LoadingChunks[-1]
 execute if score #ForceloadLib.IsLoaded ForceloadLib matches 0 run data remove storage forceloadlib:temporary LoadingChunks[-1]
-execute if score #ForceloadLib.IsLoaded ForceloadLib matches 0 if data storage forceloadlib:temporary LoadingChunks[1] run return run function forceloadlib:zprivate/add/loading_chunks/check with storage forceloadlib:temporary LoadingChunks[-1]
+execute if score #ForceloadLib.IsLoaded ForceloadLib matches 0 run return run execute if data storage forceloadlib:temporary LoadingChunks[1] run function forceloadlib:zprivate/add/loading_chunks/check with storage forceloadlib:temporary LoadingChunks[-1]
 
 # Run the command and remove the reference from the "loading" list
 scoreboard players remove #ForceloadLib.LoadingChunks ForceloadLib 1

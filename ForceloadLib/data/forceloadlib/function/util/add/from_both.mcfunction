@@ -18,10 +18,6 @@
 ## Protected (Optional): Makes the reference unremovable, except for via direct ID access.                          ##
 ######################################################################################################################
 
-# Check if the chunk is legacy forceloaded
-execute store success score #ForceloadLib.HasNoLegacyForceload ForceloadLib run forceload add ~ ~
-execute if score #ForceloadLib.HasNoLegacyForceload ForceloadLib matches 0 run return 0
-
 # Align to chunk borders
 data modify storage forceloadlib:temporary AddChunk set from storage forceloadlib:util AddChunk
 execute store result storage forceloadlib:temporary AddChunk.X int 16 run data get storage forceloadlib:temporary AddChunk.X 0.0625
@@ -36,6 +32,7 @@ execute if loaded ~ 0 ~ run function forceloadlib:zprivate/add/run_command with 
 execute if loaded ~ 0 ~ run return run scoreboard players get #ForceloadLib.ReferenceID ForceloadLib
 
 # Add chunk to "loading" list
+forceload add ~ ~
 data modify storage forceloadlib:zprivate LoadingChunks append from storage forceloadlib:temporary AddChunk
 data remove storage forceloadlib:temporary AddChunk
 scoreboard players add #ForceloadLib.LoadingChunks ForceloadLib 1
