@@ -1,6 +1,9 @@
 # Load the chunk's references
 $data modify storage forceloadlib:temporary RemoveChunk.References set from storage forceloadlib:zprivate AllChunks[{Dimension:"$(Dimension)",X:$(X),Z:$(Z)}].References
 
+# Stop if the chunk has no references
+execute unless data storage forceloadlib:temporary RemoveChunk.References run return 0
+
 # Modify the chunk's references: Remove the last removable reference (Not Forced & Loading, not Protected)
 execute store result score #ForceloadLib.ListSize ForceloadLib if data storage forceloadlib:temporary RemoveChunk.References[]
 function forceloadlib:zprivate/remove/remove_last_loop
