@@ -33,8 +33,8 @@ execute if loaded ~ 0 ~ run return run scoreboard players get #ForceloadLib.Refe
 
 # Add chunk to "loading" list
 forceload add ~ ~
-data modify storage forceloadlib:zprivate LoadingChunks append from storage forceloadlib:temporary AddChunk
+data modify storage forceloadlib:zprivate LoadingReferences append from storage forceloadlib:temporary AddChunk
 data remove storage forceloadlib:temporary AddChunk
-scoreboard players add #ForceloadLib.LoadingChunks ForceloadLib 1
+scoreboard players add #ForceloadLib.LoadingReferences ForceloadLib 1
 schedule function forceloadlib:zprivate/add/loading_chunks/check_scheduled 1t
 return run scoreboard players get #ForceloadLib.ReferenceID ForceloadLib

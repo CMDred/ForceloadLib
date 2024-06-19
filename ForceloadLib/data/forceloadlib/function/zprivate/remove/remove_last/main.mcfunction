@@ -6,7 +6,7 @@ execute unless data storage forceloadlib:temporary RemoveChunk.References run re
 
 # Modify the chunk's references: Remove the last removable reference (Not Forced & Loading, not Protected)
 execute store result score #ForceloadLib.ListSize ForceloadLib if data storage forceloadlib:temporary RemoveChunk.References[]
-function forceloadlib:zprivate/remove/remove_last_loop
+function forceloadlib:zprivate/remove/remove_last/check_loop
 data modify storage forceloadlib:temporary RemoveChunk.References append from storage forceloadlib:temporary UnremovableReferences[]
 data remove storage forceloadlib:temporary UnremovableReferences
 data remove storage forceloadlib:temporary CurrentReference

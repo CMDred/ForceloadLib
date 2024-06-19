@@ -10,9 +10,12 @@ tellraw @a [{"text":"□ ForceloadLib >> ","color":"#51B54F"},{"text":"Uninstall
 
 # Remove Scoreboards
 
+# Remove all references and unforceload the chunks
+
 # Remove Data Storages
 data remove storage forceloadlib:zprivate AllChunks
-data remove storage forceloadlib:zprivate LoadingChunks
+data remove storage forceloadlib:zprivate LoadingReferences
+data remove storage forceloadlib:zprivate TimerReferences
 data remove storage forceloadlib:util AddChunk
 data remove storage forceloadlib:util RemoveChunk
 
