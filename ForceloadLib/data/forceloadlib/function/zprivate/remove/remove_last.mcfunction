@@ -15,5 +15,4 @@ data remove storage forceloadlib:temporary CurrentReference
 $data modify storage forceloadlib:zprivate AllChunks[{Dimension:"$(Dimension)",X:$(X),Z:$(Z)}].References set from storage forceloadlib:temporary RemoveChunk.References
 
 # Unforceload if no references remain
-execute store result score #ForceloadLib.ListSize ForceloadLib if data storage forceloadlib:temporary RemoveChunk.References[]
-execute if score #ForceloadLib.ListSize ForceloadLib matches 0 run function forceloadlib:zprivate/remove/remove_forceload with storage forceloadlib:temporary RemoveChunk
+execute if data storage forceloadlib:temporary {RemoveChunk:{References:[]}} run function forceloadlib:zprivate/remove/remove_forceload with storage forceloadlib:temporary RemoveChunk

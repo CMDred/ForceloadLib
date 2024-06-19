@@ -4,11 +4,17 @@ execute if score #ForceloadLib.IsLoaded ForceloadLib matches 0 run data modify s
 execute if score #ForceloadLib.IsLoaded ForceloadLib matches 0 run data remove storage forceloadlib:temporary LoadingChunks[-1]
 execute if score #ForceloadLib.IsLoaded ForceloadLib matches 0 run return run execute if data storage forceloadlib:temporary LoadingChunks[1] run function forceloadlib:zprivate/add/loading_chunks/check with storage forceloadlib:temporary LoadingChunks[-1]
 
-# Run the command and remove the reference from the "loading" list
+# Run the command, remove the reference from the "loading" list and activate the timer
 scoreboard players remove #ForceloadLib.LoadingChunks ForceloadLib 1
-function forceloadlib:zprivate/add/loading_chunks/remove_loading_tag with storage forceloadlib:temporary LoadingChunks[-1]
-execute if data storage forceloadlib:temporary LoadingChunks[-1].Duration run function forceloadlib:zprivate/add/loading_chunks/activate_timer
+data modify storage forceloadlib:temporary AddReference.ID set from storage forceloadlib:temporary LoadingChunks[-1].ID
+
+execute if data storage forceloadlib:temporary LoadingChunks[-1].Duration run data modify storage forceloadlib:temporary AddChunk set from storage forceloadlib:temporary LoadingChunks[-1]
+execute if data storage forceloadlib:temporary LoadingChunks[-1].Duration run function forceloadlib:zprivate/add/timer_chunks/set_removal_timestamp
+data remove storage forceloadlib:temporary AddChunk
+
 execute if data storage forceloadlib:temporary LoadingChunks[-1].Command run function forceloadlib:zprivate/add/run_command with storage forceloadlib:temporary LoadingChunks[-1]
+function forceloadlib:zprivate/add/loading_chunks/remove_loading_tag with storage forceloadlib:temporary LoadingChunks[-1]
+data remove storage forceloadlib:temporary AddReference
 
 # Check the next chunk if there is one
 execute if score #ForceloadLib.LoadingChunks ForceloadLib matches 0 run return 0

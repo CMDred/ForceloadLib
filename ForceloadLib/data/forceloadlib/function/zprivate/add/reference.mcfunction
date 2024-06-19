@@ -6,7 +6,7 @@ execute if score #ForceloadLib.IsLegacyForceloaded ForceloadLib matches 1 run re
 
 # Add the reference to the chunk
 data modify storage forceloadlib:temporary AddReference set value {}
-execute store result storage forceloadlib:temporary AddReference.ID int 1 run scoreboard players add #ForceloadLib.ReferenceID ForceloadLib 1
+execute store result storage forceloadlib:temporary AddChunk.ID int 1 store result storage forceloadlib:temporary AddReference.ID int 1 run scoreboard players add #ForceloadLib.ReferenceID ForceloadLib 1
 execute unless loaded ~ 0 ~ run data modify storage forceloadlib:temporary AddReference.Loading set value 1b
 execute if loaded ~ 0 ~ if data storage forceloadlib:temporary AddChunk.Duration run function forceloadlib:zprivate/add/timer_chunks/set_removal_timestamp
 data modify storage forceloadlib:temporary AddReference.Force set from storage forceloadlib:temporary AddChunk.Force

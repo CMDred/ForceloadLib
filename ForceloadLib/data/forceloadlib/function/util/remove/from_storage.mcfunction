@@ -21,6 +21,6 @@ execute store result storage forceloadlib:temporary RemoveChunk.X int 16 run dat
 execute store result storage forceloadlib:temporary RemoveChunk.Z int 16 run data get storage forceloadlib:temporary RemoveChunk.Z 0.0625
 
 # Try to remove the chunk's most recent removable reference (or the reference with the matching ID)
-execute if data storage forceloadlib:temporary RemoveChunk.ID run return run function forceloadlib:zprivate/remove/remove_with_id with storage forceloadlib:temporary RemoveChunk
-function forceloadlib:zprivate/remove/remove_last with storage forceloadlib:temporary RemoveChunk
+execute if data storage forceloadlib:temporary RemoveChunk.ID run function forceloadlib:zprivate/remove/remove_with_id with storage forceloadlib:temporary RemoveChunk
+execute unless data storage forceloadlib:temporary RemoveChunk.ID run function forceloadlib:zprivate/remove/remove_last with storage forceloadlib:temporary RemoveChunk
 data remove storage forceloadlib:temporary RemoveChunk

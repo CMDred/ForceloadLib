@@ -37,4 +37,4 @@ data modify storage forceloadlib:zprivate LoadingChunks append from storage forc
 data remove storage forceloadlib:temporary AddChunk
 scoreboard players add #ForceloadLib.LoadingChunks ForceloadLib 1
 schedule function forceloadlib:zprivate/add/loading_chunks/check_scheduled 1t
-return run execute store result storage forceloadlib:zprivate LoadingChunks[-1].ID int 1 run scoreboard players get #ForceloadLib.ReferenceID ForceloadLib
+return run scoreboard players get #ForceloadLib.ReferenceID ForceloadLib
