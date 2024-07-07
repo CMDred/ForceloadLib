@@ -5,7 +5,7 @@
 ## 2. The reference with a matching ID will be removed if possible                        ##
 ## 3. If the chunk loses its last reference, it will stop being forceloaded               ##
 ##                                                                                        ##
-## Note: This method is the fastest                                                       ##
+## Note: Using IDs is faster                                                              ##
 ############################################################################################
 ##                                       EXPLANATION                                      ##
 ############################################################################################

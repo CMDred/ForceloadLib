@@ -7,7 +7,7 @@ execute if data storage forceloadlib:temporary CurrentReference.RemovalTimestamp
 
 # Save to chunk storage or unforceload chunk if no references remain
 data remove storage forceloadlib:temporary RemoveChunk.References[-1]
-execute unless data storage forceloadlib:temporary UnremovableReferences if data storage forceloadlib:temporary {RemoveChunk:{References:[]}} run return run function forceloadlib:zprivate/remove/remove_forceload with storage forceloadlib:temporary RemoveChunk
+execute unless data storage forceloadlib:temporary UnremovableReferences if data storage forceloadlib:temporary {RemoveChunk:{References:[]}} run return run function forceloadlib:zprivate/remove/remove_forceload_from_position with storage forceloadlib:temporary RemoveChunk
 
 data modify storage forceloadlib:temporary RemoveChunk.References append from storage forceloadlib:temporary UnremovableReferences[]
 function forceloadlib:zprivate/remove/remove_id/save_chunk with storage forceloadlib:temporary CurrentReference
