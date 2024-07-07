@@ -18,4 +18,4 @@
 ######################################################################################################################
 
 # Position the command for cheap ~ ~ ~
-$execute in $(Dimension) positioned $(X) 0 $(Z) run return run function forceloadlib:util/add/from_both
+$execute in $(Dimension) positioned $(X) 0 $(Z) run return run function forceloadlib:util/add/from_storage_and_position

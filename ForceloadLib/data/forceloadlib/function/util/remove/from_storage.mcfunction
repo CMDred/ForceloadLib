@@ -2,7 +2,7 @@
 ##                                       HOW TO USE                                       ##
 ############################################################################################
 ## 1. Set the 'forceloadlib:util RemoveChunk' storage:                                    ##
-##    {Dimension:'...',X:<int>,Z:<int>,ID:<int>}                                          ##
+##    {Dimension:'...',X:<int>,Z:<int>}                                                   ##
 ## 2. Run this function                                                                   ##
 ## 3. The most recent removable reference on the chunk will be removed                    ##
 ## 4. If the chunk loses its last reference, it will stop being forceloaded               ##
@@ -10,13 +10,6 @@
 ## Note: Always include the dimension's namespace                                         ##
 ## Note: Manually forceloaded chunks will not be affected by ForceloadLib                 ##
 ############################################################################################
-##                                       EXPLANATION                                      ##
-############################################################################################
-## ID (Optional): If specified, it will try to remove a specific reference with that ID.  ##
-############################################################################################
-
-# Try to remove via ID
-execute if data storage forceloadlib:util RemoveChunk.ID run return run function forceloadlib:zprivate/remove/remove_id/main with storage forceloadlib:util RemoveChunk
 
 # Align to chunk borders
 data modify storage forceloadlib:temporary RemoveChunk set from storage forceloadlib:util RemoveChunk
