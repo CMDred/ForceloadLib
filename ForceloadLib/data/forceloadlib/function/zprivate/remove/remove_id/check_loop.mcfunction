@@ -1,6 +1,6 @@
 # Compare the Reference ID
 data modify storage forceloadlib:temporary CurrentReference set from storage forceloadlib:temporary RemoveChunk.References[-1]
-execute store success score #ForceloadLib.NoMatchingID ForceloadLib run data modify storage forceloadlib:temporary CurrentReference.ID set from storage forceloadlib:util RemoveChunk.ID
+execute store success score #ForceloadLib.NoMatchingID ForceloadLib run data modify storage forceloadlib:temporary CurrentReference.ID set from storage forceloadlib:util Remove.ID
 
 # Match found: Remove the reference with the ID (Unless it's loading and forced)
 execute if score #ForceloadLib.NoMatchingID ForceloadLib matches 0 run return run function forceloadlib:zprivate/remove/remove_id/remove with storage forceloadlib:temporary RemoveChunk.References[-1]

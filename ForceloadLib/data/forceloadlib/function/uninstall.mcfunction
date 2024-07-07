@@ -16,7 +16,7 @@ tellraw @a [{"text":"□ ForceloadLib >> ","color":"#51B54F"},{"text":"Uninstall
 data remove storage forceloadlib:zprivate AllChunks
 data remove storage forceloadlib:zprivate LoadingReferences
 data remove storage forceloadlib:zprivate TimerReferences
-data remove storage forceloadlib:util AddChunk
-data remove storage forceloadlib:util RemoveChunk
+data remove storage forceloadlib:util Add
+data remove storage forceloadlib:util Remove
 
 # Stop Schedule Loops
