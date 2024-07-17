@@ -2,7 +2,7 @@
 ##                                       HOW TO USE                                       ##
 ############################################################################################
 ## 1. Set the 'forceloadlib:util Remove' storage:                                         ##
-##    {Dimension:'...',Pos:[<X>,<Y>,<Z>]}                                                 ##
+##    {Dimension:'...',Pos:[<X>,<Y>,<Z>],Namespace:'...'}                                 ##
 ## 2. Run this function from within the desired chunk                                     ##
 ## 3. The most recent removable reference on the chunk will be removed                    ##
 ## 4. If the chunk loses its last reference, it will stop being forceloaded               ##
