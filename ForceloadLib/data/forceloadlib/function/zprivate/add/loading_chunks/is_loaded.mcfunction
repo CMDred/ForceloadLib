@@ -16,6 +16,8 @@ execute if score #ForceloadLib.HasCommand ForceloadLib matches 1 run data modify
 execute if score #ForceloadLib.HasCommand ForceloadLib matches 1 run data modify storage forceloadlib:temporary CommandData.Z set from storage forceloadlib:temporary LoadingReferences[-1].Pos[2]
 execute if score #ForceloadLib.HasCommand ForceloadLib matches 1 run function forceloadlib:zprivate/add/loading_chunks/run_command with storage forceloadlib:temporary CommandData
 
+function #forceloadlib:chunk_loaded
+
 execute unless score #ForceloadLib.ReferenceDuration ForceloadLib matches 0 run function forceloadlib:zprivate/add/loading_chunks/remove_loading_tag with storage forceloadlib:temporary LoadingReferences[-1]
 data remove storage forceloadlib:temporary AddReference
 

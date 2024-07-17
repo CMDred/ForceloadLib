@@ -5,6 +5,7 @@
 ##    {Dimension:'...',Pos:[<X>,<Y>,<Z>],Namespace:'...',Command:'...',Duration:<int>,Force:<Optional: 1b>,Protected:<Optional: 1b>}  ##
 ## 2. Run this function from within the desired chunk                                                                                 ##
 ## 3. The return value of this function is the reference's ID                                                                         ##
+## 4. As soon as the chunk is loaded, the #forceloadlib:chunk_loaded function tag is executed                                         ##
 ##                                                                                                                                    ##
 ## Note: Always include the dimension's namespace                                                                                     ##
 ## Note: This is more efficient than 'from_storage'                                                                                   ##
