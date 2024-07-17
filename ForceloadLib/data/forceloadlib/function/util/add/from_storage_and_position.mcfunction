@@ -23,13 +23,17 @@ data modify storage forceloadlib:temporary AddChunk set from storage forceloadli
 execute store result storage forceloadlib:temporary AddChunk.X int 16 run data get storage forceloadlib:util Add.Pos[0] 0.0625
 execute store result storage forceloadlib:temporary AddChunk.Z int 16 run data get storage forceloadlib:util Add.Pos[2] 0.0625
 
-# Add the reference
-function forceloadlib:zprivate/add/reference with storage forceloadlib:temporary AddChunk
+# Add the reference (Unless Duration = 0)
+scoreboard players reset #ForceloadLib.ReferenceDuration
+execute if data storage forceloadlib:temporary AddChunk.Duration store result score #ForceloadLib.ReferenceDuration ForceloadLib run data get storage forceloadlib:temporary AddChunk.Duration
+execute unless score #ForceloadLib.ReferenceDuration ForceloadLib matches 0 run function forceloadlib:zprivate/add/reference with storage forceloadlib:temporary AddChunk
 
 # Check if the chunk is already loaded
 execute if loaded ~ 0 ~ run return run function forceloadlib:zprivate/add/chunk_already_loaded
 
 # Add chunk to "loading" list
+execute if score #ForceloadLib.ReferenceDuration ForceloadLib matches 0 run function forceloadlib:zprivate/add/no_duration/prepare_loading with storage forceloadlib:temporary AddChunk
+
 forceload add ~ ~
 data modify storage forceloadlib:zprivate LoadingReferences append from storage forceloadlib:temporary AddChunk
 data remove storage forceloadlib:temporary AddChunk
