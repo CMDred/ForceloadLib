@@ -24,16 +24,31 @@ ForceloadLib also offers many useful features aside from that.\
 - Powerful reference management
   - Either remove the last removable reference from a chunk, or target it directly via ID
 - Chunk loading management. When a chunk gets loaded:
-  - '#ForceloadLib.ChunkLoaded ForceloadLib' score gets set to the reference's ID
-  - 'forceloadlib:event ChunkLoaded' storage gets set with the 'Dimension', 'X' and 'Z' data of the chunk
-  - '#forceloadlib:chunk_loaded' function tag gets called with that storage as a macro source
+  - '**#ForceloadLib.ChunkLoaded ForceloadLib**' score gets set to the reference's ID
+  - '**forceloadlib:event ChunkLoaded**' storage gets set with the 'Dimension', 'X' and 'Z' data of the chunk
+  - '**#forceloadlib:chunk_loaded**' function tag gets called with that storage as a macro source
 - A function tag that's called whenever a chunk gets loaded
   - It also sets a score (Reference ID) & a storage (Dimension & X/Z coords) for 
 - Compatibility with Vanilla forceloaded chunks
   - These chunks will be ignored when trying to add/remove references
 
 ## How to use
-(For now, it's explained inside each function within 'forceloadlib:util/...')
+Follow the instructions in the respective function in '**forceloadlib:util/...**'.
+- Add forceload references:
+  - forceloadlib:util/add/from_storage
+  - forceloadlib:util/add/from_storage_and_position **=>** 1 macro call less than "from_storage", but must be executed inside the correct chunk
+- Remove forceload references:
+  - forceloadlib:util/remove/from_storage
+  - forceloadlib:util/remove/from_storage_and_position **=>** 1 macro call less than "from_storage", but must be executed inside the correct chunk
+  - forceloadlib:util/remove/with_id
+  - forceloadlib:util/remove/with_id_from_position **=>** 1 macro call less than "with_id", but must be executed inside the correct chunk
+- Update ForceloadLib:
+  - Run '**forceloadlib:uninstall**'
+  - Remove the datapack and replace it with the new version
+  - Reload
+- Uninstall ForceloadLib:
+  - Run '**forceloadlib:uninstall**' and click the red '**CLICK HERE**' message to clear all remaining chunk data
+  - Remove the datapack
 
 ## Credit
 From CMDred:
