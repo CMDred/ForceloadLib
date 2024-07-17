@@ -55,4 +55,4 @@ From CMDred:
 - **SilicatYT**
 
 ## License
-As per the MIT License, you are allowed to redistribute, modify and use TimeLib as long as we are credited for the original work.
+As per the MIT License, you are allowed to redistribute, modify and use this project as long as we are credited for the original work.
