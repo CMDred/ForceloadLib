@@ -5,7 +5,10 @@
 ##    {Dimension:'...',Pos:[<X>,<Y>,<Z>],Namespace:'...',Command:'...',Duration:<int>,Force:<Optional: 1b>,Protected:<Optional: 1b>}  ##
 ## 2. Run this function from within the desired chunk                                                                                 ##
 ## 3. The return value of this function is the reference's ID                                                                         ##
-## 4. As soon as the chunk is loaded, the #forceloadlib:chunk_loaded function tag is executed                                         ##
+## 4. As soon as the chunk is loaded:                                                                                                 ##
+##    - The '#ForceloadLib.ChunkLoaded ForceloadLib' score is set to the reference's ID                                               ##
+##    - The 'forceloadlib:event ChunkLoaded' storage is set to contain the Dimension and the X & Z coordinates of the chunk           ##
+##    - The #forceloadlib:chunk_loaded function tag is executed with that storage                                                     ##
 ##                                                                                                                                    ##
 ## Note: Always include the dimension's namespace                                                                                     ##
 ## Note: This is more efficient than 'from_storage'                                                                                   ##

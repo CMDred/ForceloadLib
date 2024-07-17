@@ -1,4 +1,4 @@
-# Run the command, remove the reference from the "loading" list and activate the timer
+# Run the command, remove the reference from the "loading" list, activate the timer and run the "chunk_loaded" event
 scoreboard players remove #ForceloadLib.LoadingReferences ForceloadLib 1
 data modify storage forceloadlib:temporary AddReference.ID set from storage forceloadlib:temporary LoadingReferences[-1].ID
 
@@ -16,7 +16,12 @@ execute if score #ForceloadLib.HasCommand ForceloadLib matches 1 run data modify
 execute if score #ForceloadLib.HasCommand ForceloadLib matches 1 run data modify storage forceloadlib:temporary CommandData.Z set from storage forceloadlib:temporary LoadingReferences[-1].Pos[2]
 execute if score #ForceloadLib.HasCommand ForceloadLib matches 1 run function forceloadlib:zprivate/add/loading_chunks/run_command with storage forceloadlib:temporary CommandData
 
-function #forceloadlib:chunk_loaded
+execute store result score #ForceloadLib.ChunkLoaded ForceloadLib run data get storage forceloadlib:temporary AddReference.ID
+data modify storage forceloadlib:event ChunkLoaded.Dimension set from storage forceloadlib:temporary LoadingReferences[-1].Dimension
+data modify storage forceloadlib:event ChunkLoaded.X set from storage forceloadlib:temporary LoadingReferences[-1].X
+data modify storage forceloadlib:event ChunkLoaded.Z set from storage forceloadlib:temporary LoadingReferences[-1].Z
+function #forceloadlib:chunk_loaded with storage forceloadlib:event ChunkLoaded
+data remove storage forceloadlib:event ChunkLoaded
 
 execute unless score #ForceloadLib.ReferenceDuration ForceloadLib matches 0 run function forceloadlib:zprivate/add/loading_chunks/remove_loading_tag with storage forceloadlib:temporary LoadingReferences[-1]
 data remove storage forceloadlib:temporary AddReference
