@@ -23,6 +23,12 @@ ForceloadLib also offers many useful features aside from that.\
   - **Duration:** Make the reference disappear after an arbitrary number of ticks
 - Powerful reference management
   - Either remove the last removable reference from a chunk, or target it directly via ID
+- Chunk loading management. When a chunk gets loaded:
+  - '#ForceloadLib.ChunkLoaded ForceloadLib' score gets set to the reference's ID
+  - 'forceloadlib:event ChunkLoaded' storage gets set with the 'Dimension', 'X' and 'Z' data of the chunk
+  - '#forceloadlib:chunk_loaded' function tag gets called with that storage as a macro source
+- A function tag that's called whenever a chunk gets loaded
+  - It also sets a score (Reference ID) & a storage (Dimension & X/Z coords) for 
 - Compatibility with Vanilla forceloaded chunks
   - These chunks will be ignored when trying to add/remove references
 
