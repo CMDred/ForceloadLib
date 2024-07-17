@@ -1,2 +1,3 @@
-# Save the temporary storage back to the chunk's storage
-$data modify storage forceloadlib:zprivate AllChunks[{References:[{ID:$(ID)}]}] set from storage forceloadlib:temporary RemoveChunk
+# Save Storage Entry
+$data modify storage forceloadlib:zprivate AllChunks[{Dimension:"$(Dimension)",X:$(X),Z:$(Z)}] set from storage forceloadlib:temporary RemoveChunk
+data remove storage forceloadlib:temporary RemoveChunk

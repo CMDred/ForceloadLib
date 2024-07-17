@@ -4,5 +4,5 @@ execute store result storage forceloadlib:temporary AddChunk.ID int 1 store resu
 data modify storage forceloadlib:temporary AddReference.Loading set value 1b
 data modify storage forceloadlib:temporary AddReference.Force set from storage forceloadlib:temporary AddChunk.Force
 data modify storage forceloadlib:temporary AddReference.Protected set from storage forceloadlib:temporary AddChunk.Protected
-$data modify storage forceloadlib:zprivate AllChunks[{Dimension:"$(Dimension)",X:$(X),Z:$(Z)}].References append from storage forceloadlib:temporary AddReference
+$data modify storage forceloadlib:zprivate AllChunks[{Dimension:"$(Dimension)",X:$(X),Z:$(Z)}].Namespaces[{Namespace:"$(Namespace)"}].References append from storage forceloadlib:temporary AddReference
 data remove storage forceloadlib:temporary AddReference
