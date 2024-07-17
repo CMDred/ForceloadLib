@@ -1,7 +1,7 @@
 # Check if the chunk is legacy forceloaded
 scoreboard players set #ForceloadLib.IsLegacyForceloaded ForceloadLib 0
-execute store success score #ForceloadLib.HasNoForceload ForceloadLib run forceload add ~ ~
-$execute if score #ForceloadLib.HasNoForceload ForceloadLib matches 0 unless data storage forceloadlib:zprivate AllChunks[{Dimension:"$(Dimension)",X:$(X),Z:$(Z)}] run scoreboard players set #ForceloadLib.IsLegacyForceloaded ForceloadLib 1
+execute store success score #ForceloadLib.IsNotForceloaded ForceloadLib run forceload add ~ ~
+$execute if score #ForceloadLib.IsNotForceloaded ForceloadLib matches 0 unless data storage forceloadlib:zprivate AllChunks[{Dimension:"$(Dimension)",X:$(X),Z:$(Z)}] run scoreboard players set #ForceloadLib.IsLegacyForceloaded ForceloadLib 1
 execute if score #ForceloadLib.IsLegacyForceloaded ForceloadLib matches 1 run return 0
 
 # Add the reference to the chunk
