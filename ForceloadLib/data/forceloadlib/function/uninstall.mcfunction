@@ -1,3 +1,17 @@
+############################################################################################################
+##                                               HOW TO USE                                               ##
+############################################################################################################
+## Update ForceloadLib:                                                                                   ##
+## 1. Run this function                                                                                   ##
+## 2. Replace the datapack with the newer version                                                         ##
+## 3. Reload                                                                                              ##
+##                                                                                                        ##
+## Uninstall ForceloadLib:                                                                                ##
+## 1. Run this function                                                                                   ##
+## 2. Click the red 'CLICK HERE' text to remove all remaining chunk data & references                     ##
+## 3. Remove the datapack                                                                                 ##
+############################################################################################################
+
 # Check
 scoreboard objectives add ForceloadLib.Uninstall dummy
 execute store success score #ForceloadLib.Init ForceloadLib.Uninstall run scoreboard objectives remove ForceloadLib
@@ -17,7 +31,6 @@ scoreboard players reset #ForceloadLib.IsNotForceloaded
 scoreboard players reset #ForceloadLib.IsLegacyForceloaded
 scoreboard players reset #ForceloadLib.IsLoaded
 scoreboard players reset #ForceloadLib.HasCommand
-scoreboard players reset #ForceloadLib.PotentialNextRemovalTimestamp
 scoreboard players reset #ForceloadLib.RemovalTimestamp
 scoreboard players reset #ForceloadLib.ListSize
 scoreboard players reset #ForceloadLib.ReferenceCount

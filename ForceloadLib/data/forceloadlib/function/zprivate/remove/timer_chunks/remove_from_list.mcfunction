@@ -11,5 +11,5 @@ scoreboard players operation #ForceloadLib.ListSize ForceloadLib = #ForceloadLib
 data modify storage forceloadlib:temporary TimerReferences set from storage forceloadlib:zprivate TimerReferences
 execute store result score #ForceloadLib.NextRemovalTimestamp ForceloadLib run data get storage forceloadlib:temporary TimerReferences[-1].RemovalTimestamp
 data remove storage forceloadlib:temporary TimerReferences[-1]
-function forceloadlib:zprivate/add/set_next_removal_timestamp
+function forceloadlib:zprivate/add/timer_chunks/set_next_removal_timestamp
 data remove storage forceloadlib:temporary TimerReferences

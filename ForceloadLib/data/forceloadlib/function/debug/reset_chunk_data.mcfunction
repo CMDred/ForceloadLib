@@ -16,8 +16,10 @@ schedule clear forceloadlib:zprivate/add/loading_chunks/check_scheduled
 schedule clear forceloadlib:zprivate/remove/timer_chunks/check_scheduled
 
 # Remove Scoreboards
-scoreboard objectives remove ForceloadLib
+execute unless score #ForceloadLib.Init ForceloadLib matches 1 run scoreboard objectives remove ForceloadLib
 
 scoreboard players reset #ForceloadLib.LoadingReferences
 scoreboard players reset #ForceloadLib.TimerReferences
 scoreboard players reset #ForceloadLib.NextRemovalTimestamp
+
+scoreboard players reset #ForceloadLib.GameTime

@@ -1,6 +1,6 @@
 # Get the lowest "RemovalTimestamp" value
-execute store result score #ForceloadLib.PotentialNextRemovalTimestamp ForceloadLib run data get storage forceloadlib:temporary TimerReferences[-1].RemovalTimestamp
-execute if score #ForceloadLib.PotentialNextRemovalTimestamp ForceloadLib < #ForceloadLib.NextRemovalTimestamp ForceloadLib run scoreboard players operation #ForceloadLib.NextRemovalTimestamp ForceloadLib = #ForceloadLib.PotentialNextRemovalTimestamp ForceloadLib
+execute store result score #ForceloadLib.RemovalTimestamp ForceloadLib run data get storage forceloadlib:temporary TimerReferences[-1].RemovalTimestamp
+execute if score #ForceloadLib.RemovalTimestamp ForceloadLib < #ForceloadLib.NextRemovalTimestamp ForceloadLib run scoreboard players operation #ForceloadLib.NextRemovalTimestamp ForceloadLib = #ForceloadLib.RemovalTimestamp ForceloadLib
 
 # Check next element
 execute if score #ForceloadLib.ListSize ForceloadLib matches 1 run return 0

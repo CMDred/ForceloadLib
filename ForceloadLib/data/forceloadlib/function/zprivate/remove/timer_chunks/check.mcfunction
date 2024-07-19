@@ -4,7 +4,7 @@ execute if score #ForceloadLib.RemovalTimestamp ForceloadLib <= #ForceloadLib.Ga
 execute if score #ForceloadLib.RemovalTimestamp ForceloadLib <= #ForceloadLib.Gametime ForceloadLib run function forceloadlib:zprivate/remove/timer_chunks/remove_from_chunk with storage forceloadlib:temporary TimerReferences[-1]
 
 # Update the "NextRemovalTimestamp" & Add element back to the list
-execute unless score #ForceloadLib.RemovalTimestamp ForceloadLib <= #ForceloadLib.Gametime ForceloadLib if score #ForceloadLib.RemovalTimestamp ForceloadLib < #ForceloadLib.NextRemovalTimestamp ForceloadLib run data modify storage forceloadlib:zprivate TimerReferences append from storage forceloadlib:temporary TimerReferences[-1]
+execute unless score #ForceloadLib.RemovalTimestamp ForceloadLib <= #ForceloadLib.Gametime ForceloadLib run data modify storage forceloadlib:zprivate TimerReferences append from storage forceloadlib:temporary TimerReferences[-1]
 execute unless score #ForceloadLib.RemovalTimestamp ForceloadLib <= #ForceloadLib.Gametime ForceloadLib if score #ForceloadLib.RemovalTimestamp ForceloadLib < #ForceloadLib.NextRemovalTimestamp ForceloadLib run scoreboard players operation #ForceloadLib.NextRemovalTimestamp ForceloadLib = #ForceloadLib.RemovalTimestamp ForceloadLib
 
 # Check next element
