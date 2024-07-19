@@ -33,7 +33,7 @@ ForceloadLib also offers many useful features aside from that.\
   - These chunks will be ignored when trying to add/remove references
 
 ## How to use
-Follow the instructions in the respective function in '**forceloadlib:util/...**'.
+Follow the instructions in the respective function (Everything except '**zprivate**'):
 - Add forceload references:
   - forceloadlib:util/add/from_storage
   - forceloadlib:util/add/from_storage_and_position **=>** 1 macro call less than "from_storage", but must be executed inside the correct chunk
