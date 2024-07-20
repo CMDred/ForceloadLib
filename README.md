@@ -17,7 +17,10 @@ ForceloadLib also offers many useful features aside from that.\
   - The chunk will only stop being forceloaded once every single reference has been removed
   - Each reference belongs to a namespace for better control & cross-system compatibility
 - Various optional parameters for your forceload references:
-  - **Command:** Run a command at the specified location as soon as the chunk is loaded
+  - **Command:** Run a command at the specified location
+  - **CommandTrigger:** Specify when the command runs
+    - Instantly, or as soon as the chunk loads
+    - Only if the chunk loads
   - **Force:** Make the reference unremovable until the chunk is loaded
   - **Protected:** Make the reference unremovable unless you target it directly via ID
   - **Duration:** Make the reference disappear after an arbitrary number of ticks

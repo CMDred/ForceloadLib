@@ -2,7 +2,7 @@
 ##                                                             HOW TO USE                                                             ##
 ########################################################################################################################################
 ## 1. Set the 'forceloadlib:util Add' storage:                                                                                        ##
-##    {Dimension:'...',Pos:[<X>,<Y>,<Z>],Namespace:'...',Command:'...',Duration:<int>,Force:<Optional: 1b>,Protected:<Optional: 1b>}  ##
+##    {Dimension:'...',Pos:[<X>,<Y>,<Z>],Namespace:'...',<Optional Parameters>}                                                       ##
 ## 2. Run this function with the storage as the macro source                                                                          ##
 ## 3. The return value of this function is the reference's ID                                                                         ##
 ## 4. As soon as the chunk is loaded:                                                                                                 ##
@@ -12,13 +12,15 @@
 ##                                                                                                                                    ##
 ## Note: Always include the dimension's namespace                                                                                     ##
 ########################################################################################################################################
-##                                                             EXPLANATION                                                            ##
+##                                                        Optional Parameters                                                         ##
 ########################################################################################################################################
-## Command (Optional): This command will be executed at the Pos as soon as the chunk is loaded.                                       ##
-## Duration (Optional): The number of ticks before the reference is automatically removed.                                            ##
-## Force (Optional): Makes the reference unremovable before the chunk is loaded. If 'Duration' is also specified,                     ##
-##                   the reference cannot be removed before the time runs out, except for via direct ID access.                       ##
-## Protected (Optional): Makes the reference unremovable, except for via direct ID access.                                            ##
+## Command (String): This command will be executed when the 'CommandTrigger' condition is met                                         ##
+## CommandTrigger [Values: 1-2]: Defaults to 1                                                                                        ##
+##                               1: The command will execute as soon as the chunk loads                                               ##
+##                               2: The command will execute instantly (If the chunk is already loaded) or as soon as the chunk loads ##
+## Duration (Integer): The number of ticks before the reference is automatically removed                                              ##
+## Force [Value: 1b]: Makes the reference unremovable before the chunk is loaded                                                      ##
+## Protected [Value: 1b]: Makes the reference unremovable, except for via direct ID access                                            ##
 ########################################################################################################################################
 
 # Position the command for cheap ~ ~ ~

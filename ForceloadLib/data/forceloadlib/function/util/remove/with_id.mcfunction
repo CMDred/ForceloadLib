@@ -7,10 +7,6 @@
 ##                                                                                        ##
 ## Note: Using IDs is faster                                                              ##
 ############################################################################################
-##                                       EXPLANATION                                      ##
-############################################################################################
-## ID: It will try to remove a specific reference with that ID.                           ##
-############################################################################################
 
 # Get the reference's chunk & remove the reference
 $data modify storage forceloadlib:temporary RemoveChunk set from storage forceloadlib:zprivate AllChunks[{Namespaces:[{References:[{ID:$(ID)}]}]}]
@@ -21,6 +17,7 @@ $data remove storage forceloadlib:temporary RemoveChunk.Namespaces[].References[
 # Remove the "loading" or "timer" reference from its list (Maybe there's a good way that doesn't require the extra macro call for saving the reference temporarily? To Do: 1 for loading the chunk, 1 for saving it. To remove the reference, use a loop like before)
 execute if data storage forceloadlib:temporary Reference.Loading run function forceloadlib:zprivate/remove/loading_chunks/remove_from_list with storage forceloadlib:temporary Reference
 execute if data storage forceloadlib:temporary Reference.RemovalTimestamp run function forceloadlib:zprivate/remove/timer_chunks/remove_from_list with storage forceloadlib:temporary Reference
+data remove storage forceloadlib:temporary Reference
 
 # Check if no references remain
 execute store result score #ForceloadLib.ReferenceCount ForceloadLib if data storage forceloadlib:temporary RemoveChunk.Namespaces[].References[]

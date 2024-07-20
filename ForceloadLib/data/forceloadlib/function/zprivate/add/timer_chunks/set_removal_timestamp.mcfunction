@@ -1,13 +1,15 @@
-data remove storage forceloadlib:temporary AddChunk.Command
-
 # Set the timestamp at which the reference gets removed automatically
-execute store result score #ForceloadLib.Gametime ForceloadLib run time query gametime
+execute store result score #ForceloadLib.GameTime ForceloadLib run time query gametime
 execute store result score #ForceloadLib.Duration ForceloadLib run data get storage forceloadlib:temporary AddChunk.Duration
-execute store result storage forceloadlib:temporary AddChunk.RemovalTimestamp int 1 store result storage forceloadlib:temporary AddReference.RemovalTimestamp int 1 run scoreboard players operation #ForceloadLib.Duration ForceloadLib += #ForceloadLib.Gametime ForceloadLib
+execute store result storage forceloadlib:temporary AddChunk.RemovalTimestamp int 1 store result storage forceloadlib:temporary AddReference.RemovalTimestamp int 1 run scoreboard players operation #ForceloadLib.Duration ForceloadLib += #ForceloadLib.GameTime ForceloadLib
 
-# Add reference to "timer" list
+# Add reference to "timer" list (Removing the 'Command', 'CommandTrigger', 'Pos' and 'Force' data is only done to make the data cleaner, as it's unused inside the TimerReferences data)
 data remove storage forceloadlib:temporary AddChunk.Duration
 data modify storage forceloadlib:zprivate TimerReferences append from storage forceloadlib:temporary AddChunk
+data remove storage forceloadlib:zprivate TimerReferences[-1].Command
+data remove storage forceloadlib:zprivate TimerReferences[-1].CommandTrigger
+data remove storage forceloadlib:zprivate TimerReferences[-1].Pos
+data remove storage forceloadlib:zprivate TimerReferences[-1].Force
 scoreboard players add #ForceloadLib.TimerReferences ForceloadLib 1
 
 schedule function forceloadlib:zprivate/remove/timer_chunks/check_scheduled 1t

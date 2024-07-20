@@ -2,7 +2,7 @@
 ##                                                             HOW TO USE                                                             ##
 ########################################################################################################################################
 ## 1. Set the 'forceloadlib:util Add' storage:                                                                                        ##
-##    {Dimension:'...',Pos:[<X>,<Y>,<Z>],Namespace:'...',Command:'...',Duration:<int>,Force:<Optional: 1b>,Protected:<Optional: 1b>}  ##
+##    {Dimension:'...',Pos:[<X>,<Y>,<Z>],Namespace:'...',<Optional Parameters>}                                                       ##
 ## 2. Run this function from within the desired chunk                                                                                 ##
 ## 3. The return value of this function is the reference's ID                                                                         ##
 ## 4. As soon as the chunk is loaded:                                                                                                 ##
@@ -13,13 +13,15 @@
 ## Note: Always include the dimension's namespace                                                                                     ##
 ## Note: This is more efficient than 'from_storage'                                                                                   ##
 ########################################################################################################################################
-##                                                             EXPLANATION                                                            ##
+##                                                        Optional Parameters                                                         ##
 ########################################################################################################################################
-## Command (Optional): This command will be executed at the Pos as soon as the chunk is loaded.                                       ##
-## Duration (Optional): The number of ticks before the reference is automatically removed.                                            ##
-## Force (Optional): Makes the reference unremovable before the chunk is loaded. If 'Duration' is also specified,                     ##
-##                   the reference cannot be removed before the time runs out, except for via direct ID access.                       ##
-## Protected (Optional): Makes the reference unremovable, except for via direct ID access.                                            ##
+## Command (String): This command will be executed when the 'CommandTrigger' condition is met                                         ##
+## CommandTrigger [Values: 1-2]: Defaults to 1                                                                                        ##
+##                               1: The command will execute as soon as the chunk loads                                               ##
+##                               2: The command will execute instantly (If the chunk is already loaded) or as soon as the chunk loads ##
+## Duration (Integer): The number of ticks before the reference is automatically removed                                              ##
+## Force [Value: 1b]: Makes the reference unremovable before the chunk is loaded                                                      ##
+## Protected [Value: 1b]: Makes the reference unremovable, except for via direct ID access                                            ##
 ########################################################################################################################################
 
 # Align to chunk borders
@@ -33,7 +35,10 @@ execute if data storage forceloadlib:temporary AddChunk.Duration store result sc
 execute unless score #ForceloadLib.ReferenceDuration ForceloadLib matches 0 run function forceloadlib:zprivate/add/reference with storage forceloadlib:temporary AddChunk
 
 # Check if the chunk is already loaded
-execute if loaded ~ 0 ~ run return run function forceloadlib:zprivate/add/chunk_already_loaded
+execute if loaded ~ 0 ~ if data storage forceloadlib:temporary AddChunk.Command if data storage forceloadlib:temporary {AddChunk:{CommandTrigger:2}} run return run function forceloadlib:zprivate/add/run_command with storage forceloadlib:temporary AddChunk
+execute if loaded ~ 0 ~ run data remove storage forceloadlib:temporary AddChunk
+execute if loaded ~ 0 ~ run return run scoreboard players get #ForceloadLib.ReferenceID ForceloadLib
+
 
 # Add chunk to "loading" list
 execute if score #ForceloadLib.ReferenceDuration ForceloadLib matches 0 run function forceloadlib:zprivate/add/no_duration/prepare_loading with storage forceloadlib:temporary AddChunk
