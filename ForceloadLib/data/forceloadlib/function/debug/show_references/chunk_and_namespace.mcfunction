@@ -8,9 +8,7 @@
 ############################################################################################################
 
 # Split the Pos into X and Z for macro usage and align to the chunk origin
-$data modify storage forceloadlib:temporary Chunk.Dimension set value "$(Dimension)"
-$data modify storage forceloadlib:temporary Chunk.Namespace set value "$(Namespace)"
-$data modify storage forceloadlib:temporary Chunk.Pos set value $(Pos)
+$data modify storage forceloadlib:temporary Chunk set value {Dimension:"$(Dimension)",Namespace:"$(Namespace)",Pos:$(Pos)}
 execute store result storage forceloadlib:temporary Chunk.X int 16 run data get storage forceloadlib:temporary Chunk.Pos[0] 0.0625
 execute store result storage forceloadlib:temporary Chunk.Z int 16 run data get storage forceloadlib:temporary Chunk.Pos[2] 0.0625
 
