@@ -13,7 +13,7 @@ scoreboard players reset #ForceloadLib.Version
 scoreboard players reset #ForceloadLib.ChunkLoaded
 scoreboard players reset #ForceloadLib.ReferenceDuration
 scoreboard players reset #ForceloadLib.Duration
-scoreboard players reset #ForceloadLib.IsNotForceloaded
+scoreboard players reset #ForceloadLib.IsForceloaded
 scoreboard players reset #ForceloadLib.IsLegacyForceloaded
 scoreboard players reset #ForceloadLib.IsLoaded
 scoreboard players reset #ForceloadLib.HasCommand
@@ -25,3 +25,4 @@ scoreboard players reset #ForceloadLib.IsWrongNamespace
 scoreboard players reset #ForceloadLib.RemovedReference
 
 scoreboard objectives remove ForceloadLib
+scoreboard objectives remove ForceloadLib.ChunkID

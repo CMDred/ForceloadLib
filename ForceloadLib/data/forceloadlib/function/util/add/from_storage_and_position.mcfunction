@@ -35,6 +35,7 @@ execute if data storage forceloadlib:temporary AddChunk.Duration store result sc
 execute unless score #ForceloadLib.ReferenceDuration ForceloadLib matches 0 run function forceloadlib:zprivate/add/reference with storage forceloadlib:temporary AddChunk
 
 # Check if the chunk is already loaded
+execute if loaded ~ 0 ~ unless score #ForceloadLib.ReferenceDuration ForceloadLib matches 0 run forceload add ~ ~
 execute if loaded ~ 0 ~ if data storage forceloadlib:temporary AddChunk.Command if data storage forceloadlib:temporary {AddChunk:{CommandTrigger:2}} run return run function forceloadlib:zprivate/add/run_command with storage forceloadlib:temporary AddChunk
 execute if loaded ~ 0 ~ run data remove storage forceloadlib:temporary AddChunk
 execute if loaded ~ 0 ~ run return run scoreboard players get #ForceloadLib.ReferenceID ForceloadLib

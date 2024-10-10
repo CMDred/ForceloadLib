@@ -20,8 +20,8 @@ execute unless score #ForceloadLib.Init ForceloadLib.Uninstall matches 1 run ret
 scoreboard objectives remove ForceloadLib.Uninstall
 
 # Check version
-execute if score #ForceloadLib.MajorVersion ForceloadLib matches 1 if score #ForceloadLib.MinorVersion ForceloadLib matches 1 if score #ForceloadLib.PatchVersion ForceloadLib matches 0 run scoreboard players set #ForceloadLib.CorrectVersion ForceloadLib 1
-execute unless score #ForceloadLib.CorrectVersion ForceloadLib matches 1 run return run tellraw @s [{"text":"","color":"red"},{"text":"□ ForceloadLib >> ","color":"#51B54F"},"⚠ Could not remove ForceloadLib (v1.1.0).\nA different version (v",{"score":{"name":"#ForceloadLib.MajorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.MinorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.PatchVersion","objective":"ForceloadLib"}},") is installed."]
+execute if score #ForceloadLib.MajorVersion ForceloadLib matches 1 if score #ForceloadLib.MinorVersion ForceloadLib matches 1 if score #ForceloadLib.PatchVersion ForceloadLib matches 1 run scoreboard players set #ForceloadLib.CorrectVersion ForceloadLib 1
+execute unless score #ForceloadLib.CorrectVersion ForceloadLib matches 1 run return run tellraw @s [{"text":"","color":"red"},{"text":"□ ForceloadLib >> ","color":"#51B54F"},"⚠ Could not remove ForceloadLib (v1.1.1).\nA different version (v",{"score":{"name":"#ForceloadLib.MajorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.MinorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.PatchVersion","objective":"ForceloadLib"}},") is installed."]
 scoreboard players reset #ForceloadLib.CorrectVersion
 
 # Tellraw
@@ -35,7 +35,7 @@ scoreboard players reset #ForceloadLib.PatchVersion
 scoreboard players reset #ForceloadLib.ChunkLoaded
 scoreboard players reset #ForceloadLib.ReferenceDuration
 scoreboard players reset #ForceloadLib.Duration
-scoreboard players reset #ForceloadLib.IsNotForceloaded
+scoreboard players reset #ForceloadLib.IsForceloaded
 scoreboard players reset #ForceloadLib.IsLegacyForceloaded
 scoreboard players reset #ForceloadLib.IsLoaded
 scoreboard players reset #ForceloadLib.HasCommand

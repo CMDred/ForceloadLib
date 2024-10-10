@@ -12,8 +12,8 @@
 ############################################################################################
 
 # Check if the chunk is even forceloaded
-execute store success score #ForceloadLib.IsNotForceloaded ForceloadLib run forceload add ~ ~
-execute if score #ForceloadLib.IsNotForceloaded ForceloadLib matches 1 run return run forceload remove ~ ~
+execute store success score #ForceloadLib.IsForceloaded ForceloadLib run forceload query ~ ~
+execute if score #ForceloadLib.IsForceloaded ForceloadLib matches 0 run return 0
 
 # Align to chunk borders
 data modify storage forceloadlib:temporary RemoveChunk set from storage forceloadlib:util Remove
