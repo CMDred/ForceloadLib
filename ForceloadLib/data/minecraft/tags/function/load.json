@@ -1,5 +1,5 @@
 {
   "values": [
-    "forceloadlib:zprivate/load"
+    "#load:_private/load"
   ]
 }
