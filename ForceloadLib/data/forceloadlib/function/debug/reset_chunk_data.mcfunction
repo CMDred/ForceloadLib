@@ -1,4 +1,4 @@
-tellraw @s ["",{"text":"□ ForceloadLib >> ","color":"#51B54F"},{"text":"Removed all forceload data","color":"red"}]
+tellraw @s ["",{text:"□ ForceloadLib >> ",color:"#51B54F"},{text:"Removed all forceload data",color:"red"}]
 
 # Reset all forceload references from all chunks, unforceload those chunks & reset the ReferenceID score
 data remove storage forceloadlib:zprivate TimerReferences

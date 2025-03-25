@@ -12,6 +12,6 @@ $data modify storage forceloadlib:temporary Chunk set value {Dimension:"$(Dimens
 execute store result storage forceloadlib:temporary Chunk.X int 16 run data get storage forceloadlib:temporary Chunk.Pos[0] 0.0625
 execute store result storage forceloadlib:temporary Chunk.Z int 16 run data get storage forceloadlib:temporary Chunk.Pos[2] 0.0625
 
-tellraw @s ["",{"text":"□ ForceloadLib >> ","color":"#51B54F"},"List of references:"]
+tellraw @s ["",{text:"□ ForceloadLib >> ",color:"#51B54F"},"List of references:"]
 function forceloadlib:zprivate/debug/show_references/chunk_and_namespace/main with storage forceloadlib:temporary Chunk
 data remove storage forceloadlib:temporary Chunk

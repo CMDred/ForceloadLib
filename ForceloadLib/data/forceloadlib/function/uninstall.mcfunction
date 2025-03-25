@@ -15,17 +15,17 @@
 # Check if it's installed
 scoreboard objectives add ForceloadLib.Uninstall dummy
 execute if score #ForceloadLib.Init ForceloadLib matches 1 run scoreboard players set #ForceloadLib.Init ForceloadLib.Uninstall 1
-execute unless score #ForceloadLib.Init ForceloadLib.Uninstall matches 1 run tellraw @a ["",{"text":"□ ForceloadLib >> ","color":"#51B54F"},{"text":"⚠ Could not remove ForceloadLib.\nIs it installed?","color":"red"}]
+execute unless score #ForceloadLib.Init ForceloadLib.Uninstall matches 1 run tellraw @a ["",{text:"□ ForceloadLib >> ",color:"#51B54F"},{text:"⚠ Could not remove ForceloadLib.\nIs it installed?",color:"red"}]
 execute unless score #ForceloadLib.Init ForceloadLib.Uninstall matches 1 run return run scoreboard objectives remove ForceloadLib.Uninstall
 scoreboard objectives remove ForceloadLib.Uninstall
 
 # Check version
 execute if score #ForceloadLib.MajorVersion ForceloadLib matches 1 if score #ForceloadLib.MinorVersion ForceloadLib matches 1 if score #ForceloadLib.PatchVersion ForceloadLib matches 1 run scoreboard players set #ForceloadLib.CorrectVersion ForceloadLib 1
-execute unless score #ForceloadLib.CorrectVersion ForceloadLib matches 1 run return run tellraw @s [{"text":"","color":"red"},{"text":"□ ForceloadLib >> ","color":"#51B54F"},"⚠ Could not remove ForceloadLib (v1.1.1).\nA different version (v",{"score":{"name":"#ForceloadLib.MajorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.MinorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.PatchVersion","objective":"ForceloadLib"}},") is installed."]
+execute unless score #ForceloadLib.CorrectVersion ForceloadLib matches 1 run return run tellraw @s [{text:"",color:"red"},{text:"□ ForceloadLib >> ",color:"#51B54F"},"⚠ Could not remove ForceloadLib (v1.1.1).\nA different version (v",{"score":{"name":"#ForceloadLib.MajorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.MinorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.PatchVersion","objective":"ForceloadLib"}},") is installed."]
 scoreboard players reset #ForceloadLib.CorrectVersion
 
 # Tellraw
-tellraw @s ["",{"text":"□ ForceloadLib >> ","color":"#51B54F"},"Uninstalled ForceloadLib (v",{"score":{"name":"#ForceloadLib.MajorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.MinorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.PatchVersion","objective":"ForceloadLib"}},")\n",{"text":"□ ForceloadLib >> ","color":"#51B54F"},{"text":"Click here","color":"dark_red","bold":true,"clickEvent":{"action":"suggest_command","value":"/function forceloadlib:zprivate/uninstall/full_uninstall"},"hoverEvent":{"action":"show_text","contents":[{"text":"Only use this if you want to uninstall ForceloadLib permanently instead of updating it.","bold":true,"color":"red"}]}}," to remove all internal data"]
+tellraw @s ["",{text:"□ ForceloadLib >> ",color:"#51B54F"},"Uninstalled ForceloadLib (v",{"score":{"name":"#ForceloadLib.MajorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.MinorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.PatchVersion","objective":"ForceloadLib"}},")\n",{text:"□ ForceloadLib >> ",color:"#51B54F"},{text:"Click here",color:"dark_red",bold:true,click_event:{action:"suggest_command",command:"/function forceloadlib:zprivate/uninstall/full_uninstall"},hover_event:{action:"show_text",value:[{text:"Only use this if you want to uninstall ForceloadLib permanently instead of updating it.",bold:true,color:"red"}]}}," to remove all internal data"]
 
 # Remove scoreboards
 scoreboard players reset #ForceloadLib.Init

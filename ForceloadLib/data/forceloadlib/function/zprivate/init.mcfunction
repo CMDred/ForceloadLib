@@ -9,6 +9,6 @@ execute unless score #ForceloadLib.ShowLoadMessage ForceloadLib matches 0 run sc
 scoreboard objectives add ForceloadLib.ChunkID dummy
 
 # Tellraw
-tellraw @a ["",{"text":"□ ForceloadLib >> ","color":"#51B54F"},"Installed ForceloadLib (v",{"score":{"name":"#ForceloadLib.MajorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.MinorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.PatchVersion","objective":"ForceloadLib"}},")"]
-tellraw @a ["",{"text":"□ ForceloadLib >> ","color":"#51B54F"},{"text":"Click here","bold":true,"color":"yellow","clickEvent":{"action":"run_command","value":"/function forceloadlib:debug/toggle_load_message"},"hoverEvent":{"action":"show_text","contents":["/function forceloadlib:debug/toggle_load_message"]}}," to toggle the load message"]
+tellraw @a ["",{text:"□ ForceloadLib >> ",color:"#51B54F"},"Installed ForceloadLib (v",{"score":{"name":"#ForceloadLib.MajorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.MinorVersion","objective":"ForceloadLib"}},".",{"score":{"name":"#ForceloadLib.PatchVersion","objective":"ForceloadLib"}},")"]
+tellraw @a ["",{text:"□ ForceloadLib >> ",color:"#51B54F"},{text:"Click here",bold:true,color:"yellow",click_event:{action:"run_command",command:"/function forceloadlib:debug/toggle_load_message"},hover_event:{action:"show_text",value:["/function forceloadlib:debug/toggle_load_message"]}}," to toggle the load message"]
 execute if score #ForceloadLib.ShowLoadMessage ForceloadLib matches 1 run tellraw @a ""
