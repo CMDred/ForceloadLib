@@ -1,3 +1,7 @@
+# Lantern Load
+scoreboard players set #ForceloadLib load.status 1
+scoreboard players set #ForceloadLib.Version load.status 1
+
 # Init
 scoreboard objectives add ForceloadLib dummy
 execute unless score #ForceloadLib.Init ForceloadLib matches 1 run function forceloadlib:zprivate/init
